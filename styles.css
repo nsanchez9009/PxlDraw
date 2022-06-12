@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+body {
+    background-color: rgba(67, 67, 231, 0.493);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+    width: auto;
+
+    margin: 0px;
+    padding: 0px;
+}
+
+.text {
+    font-family: 'Fredoka One', cursive;
+    color: rgb(67, 67, 231);
+}
+
+.mainContainer {
+    background-color: aliceblue;
+    box-shadow: 15px 15px 1px rgba(39, 39, 131, 0.5);
+
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+    padding: 15px;
+}
+
+.leftContent {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    box-sizing: border-box;
+    height: 602px;
+
+    gap: 30px;
+}
+
+.title {
+    font-size: 50px;
+    padding-bottom: 100px;
+}
+
+.colorPicker {
+    margin: 0px;
+    padding: 0px;
+
+    box-sizing: border-box;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.gridSlider {
+    -webkit-appearance: none;
+    background-color: rgba(67, 67, 231, 0.493);
+    height: 2px;
+}
+
+.gridSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background-color: rgb(67, 67, 231);
+
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+.resetButton {
+    border: 2px solid rgb(67, 67, 231);
+    background-color: aliceblue;
+
+    box-sizing: border-box;
+    padding: 5px 10px;
+
+    border-radius: 5px;
+
+    transition: all .2s ease-in-out;
+}
+
+.resetButton:hover {
+    transform: scale(1.1);
+}
+
+.grid {
+    background-color: white;
+    border: 2px solid rgb(122, 122, 122);
+
+    box-sizing: border-box;
+    height: 602px;
+    width: 602px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    box-sizing: border-box;
+    border: 1px solid green;
+
+    display: flex;
+    flex-grow: 1;
+}
+
+.box {
+    box-sizing: border-box;
+    border: 1px solid red;
+    
+    display: flex;
+    flex-grow: 1;
+}
+
+
