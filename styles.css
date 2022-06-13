@@ -151,7 +151,6 @@ body {
 
 .row {
     box-sizing: border-box;
-    border: 1px solid green;
 
     display: flex;
     flex-grow: 1;
@@ -159,7 +158,8 @@ body {
 
 .box {
     box-sizing: border-box;
-    border: 1px solid red;
+
+    background-color: white;
     
     display: flex;
     flex-grow: 1;

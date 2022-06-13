@@ -1,44 +1,57 @@
 const gridBox = document.querySelector(".grid");
 const gridSlider = document.querySelector("#gridSlider");
 const gridLabel = document.querySelector(".gridLabel");
-let gridSize = gridSlider.value;
+let gridSize = Number(gridSlider.value);
 
 gridSlider.addEventListener("input", function(){
-    const rows = document.querySelectorAll(".row");
-    //const boxes = document.querySelectorAll(".box");
+    reset();
 
-    if (gridSize < gridSlider.value){
+    const rows = document.querySelectorAll(".row");
+    const newSize = Number(gridSlider.value);
+
+    if (gridSize < newSize){
         let i, j;
 
         //add boxes to already existing rows.
         for (i = 0; i < gridSize; i++){
-            for(j = 0; j < (gridSlider.value - gridSize); j++){
+            for(j = 0; j < (newSize - gridSize); j++){
                 const box = document.createElement("div");
                 box.classList.add("box");
+                box.addEventListener("mouseover", function(e){
+                    if (e.buttons == 1) box.style.backgroundColor = color;
+                });
                 rows[i].appendChild(box);
             }
         }
-        
-        grid((gridSlider.value - gridSize), gridSlider.value);
+        grid((newSize - gridSize), newSize);
     }
 
-    else if (gridSize > gridSlider.value){
+    if (gridSize > newSize){
         let i, j;
 
-        for (i = 0; i < (gridSize - gridSlider.value); i++){
+        for (i = 0; i < (gridSize - newSize); i++){
             gridBox.removeChild(gridBox.firstElementChild);
         }
 
-        for (i = 0; i < gridSlider.value; i++){
-            for (j = 0; j < (gridSize - gridSlider.value); j++){
+        for (i = 0; i < rows.length; i++){
+            for (j = 0; j < (gridSize - newSize); j++){
                 rows[i].removeChild(rows[i].firstElementChild);
             }
         }
     }
 
-    gridSize = gridSlider.value;
+    gridSize = newSize;
     gridLabel.textContent = `${gridSize} x ${gridSize}`;
 });
+
+function reset(){
+    const boxes = document.querySelectorAll(".box");
+    boxes.forEach(div => div.style.backgroundColor = "white");
+}
+
+const resetButton = document.querySelector(".resetButton");
+
+resetButton.addEventListener("click", () => reset());
 
 const colorPicker = document.querySelector("#colorPicker");
 const colorLabel = document.querySelector(".colorLabel");
@@ -54,18 +67,15 @@ function grid(rows, boxes){
 
     for (i = 0; i < rows; i++){
         const row = document.createElement("div");
-
         row.classList.add("row");
-
         gridBox.appendChild(row);
 
         for (j = 0; j < boxes; j++){
             const box = document.createElement("div");
-
             box.classList.add("box");
-
-            box.addEventListener("click", () => box.style.backgroundColor = color);
-
+            box.addEventListener("mouseover", function(e){
+                if (e.buttons == 1) box.style.backgroundColor = color;
+            });
             row.appendChild(box);
         }
     }
