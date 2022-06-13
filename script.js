@@ -17,6 +17,7 @@ gridSlider.addEventListener("input", function(){
             for(j = 0; j < (newSize - gridSize); j++){
                 const box = document.createElement("div");
                 box.classList.add("box");
+                box.addEventListener("click", () => box.style.backgroundColor = color);
                 box.addEventListener("mouseover", function(e){
                     if (e.buttons == 1) box.style.backgroundColor = color;
                 });
@@ -73,6 +74,7 @@ function grid(rows, boxes){
         for (j = 0; j < boxes; j++){
             const box = document.createElement("div");
             box.classList.add("box");
+            box.addEventListener("click", () => box.style.backgroundColor = color);
             box.addEventListener("mouseover", function(e){
                 if (e.buttons == 1) box.style.backgroundColor = color;
             });
