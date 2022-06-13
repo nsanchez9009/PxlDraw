@@ -13,10 +13,16 @@
 
         <div class="leftContent">
             <div class="title text">PxlDraw</div>
+            
+            <div class="colorSection">
+                <label for="colorPicker" class="colorLabel text">#000000</label>
+                <input id="colorPicker" type="color" value="#000000">
+            </div>
 
-            <input class="colorPicker" type="color">
-
-            <input class="gridSlider" type="range" min="1" max="100">
+            <div class="gridSizeSection">
+                <label for="gridSlider" class="gridLabel text">50 x 50</label>
+                <input id="gridSlider" type="range" min="1" max="100" value="50">
+            </div>
 
             <button class="resetButton text">RESET</button>
         </div>
